@@ -32,7 +32,7 @@ export default function Home() {
   const addTodo = () => {
     if (!input.trim()) return
     const newTodo: Todo = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       text: input.trim(),
       completed: false,
     }
@@ -69,6 +69,7 @@ export default function Home() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
+          maxLength={200}
           placeholder="Add a task..."
           className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
